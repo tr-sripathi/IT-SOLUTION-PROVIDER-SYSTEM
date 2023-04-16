@@ -31,10 +31,13 @@
                 <ul class="nav navbar-nav">
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <li>@Html.ActionLink("Issues Report", "Index", "ITSolutionProvider")</li>
-                        <li>@Html.ActionLink("Expert Details", "Index", "ITSolutionProvider")</li> 
+                        if (User.Identity.Name.ToString() == "Customers")
+                        {
+                            <li>@Html.ActionLink("Add Issue", "AddIssue", "ITSolutionProvider")</li>
+                        }
+                        <li>@Html.ActionLink("Issue Report", "IssueDetails", "ITSolutionProvider")</li>
                         <li>@Html.ActionLink("Logout", "Logout", "ITSolutionProvider")</li>
-                    }
+                     }
                 </ul>
             </div>
         </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 02, 2023 at 12:43 PM
+-- Generation Time: Apr 16, 2023 at 12:20 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -26,6 +26,34 @@ USE `db_it_solution_provider`;
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_issue_detail`
+--
+
+DROP TABLE IF EXISTS `tbl_issue_detail`;
+CREATE TABLE IF NOT EXISTS `tbl_issue_detail` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Issue_Category` varchar(100) DEFAULT NULL,
+  `Issue_Date` date DEFAULT NULL,
+  `Priority` varchar(100) DEFAULT NULL,
+  `Status` varchar(100) DEFAULT NULL,
+  `Solution` varchar(300) DEFAULT NULL,
+  `Engin_Id` int(11) DEFAULT NULL,
+  `Feedback` varchar(300) DEFAULT NULL,
+  `Description` varchar(300) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_issue_detail`
+--
+
+INSERT INTO `tbl_issue_detail` (`ID`, `Issue_Category`, `Issue_Date`, `Priority`, `Status`, `Solution`, `Engin_Id`, `Feedback`, `Description`) VALUES
+(2, 'Hardware', '2023-04-16', 'High', 'Cancle', NULL, NULL, 'Sorry', 'House Not Working'),
+(4, 'Hardware', '2023-04-16', 'High', 'Resolved', 'Change Key Board', 1, 'Thanks', 'Key board n key not working');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_user_registration`
 --
 
@@ -42,13 +70,6 @@ CREATE TABLE IF NOT EXISTS `tbl_user_registration` (
   PRIMARY KEY (`UserID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `tbl_user_registration`
---
-
-INSERT INTO `tbl_user_registration` (`UserID`, `UserName`, `FirstName`, `LastName`, `Email`, `PhoneNO`, `Password`, `UserRoles`) VALUES
-(1, NULL, 'Azaruddin', 'Bhadgavkar', 'azaruddinbhadgavkar1111@gmail.com', '08408098804', '8408098804', 'Engineers');
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
