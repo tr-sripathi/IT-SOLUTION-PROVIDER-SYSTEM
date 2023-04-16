@@ -128,7 +128,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\IssueDetail.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\UserRegistration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -172,10 +171,6 @@
     <Content Include="Views\ITSolutionProvider\Login.cshtml" />
     <Content Include="Views\ITSolutionProvider\CreateUser.cshtml" />
     <Content Include="Views\ITSolutionProvider\Index.cshtml" />
-    <Content Include="Views\ITSolutionProvider\AddIssue.cshtml" />
-    <Content Include="Views\ITSolutionProvider\IssueDetails.cshtml" />
-    <Content Include="Views\ITSolutionProvider\Solution.cshtml" />
-    <Content Include="Views\ITSolutionProvider\Feedback.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
