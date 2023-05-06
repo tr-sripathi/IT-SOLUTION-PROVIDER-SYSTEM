@@ -1,0 +1,108 @@
+﻿@model IEnumerable<ITSolutionProviderSystem.Models.IssueDetail>
+
+@{
+    ViewBag.Title = "IssueDetails";
+}
+
+<h2>Issue Details</h2>
+<html>
+<head>
+    <style type="text/css">
+        body {
+            font-family: 'Times New Roman';
+        }
+    </style>
+</head>
+<body>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Issue_Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Issue_Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Priority)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Solution)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Engineer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Feedback)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Issue_Category)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Issue_Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Priority)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Solution)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Engineer)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Feedback)
+                </td>
+                <td>
+                    @if (item.Status == "Pending")
+                    {
+                        if (User.Identity.Name.ToString() == "Customers")
+                        {
+                            @Html.ActionLink("Cancel |", "Cancle", new { id = item.ID })
+                        }
+                    }
+                    @if (item.Status == "Pending" || item.Status == "Hold")
+                    {
+                        if (User.Identity.Name.ToString() == "Engineers")
+                        {
+                            @Html.ActionLink("Solution |", "Solution", new { id = item.ID })
+                        }
+                    }
+                    @if (item.Feedback == "")
+                    {
+                        if (User.Identity.Name.ToString() == "Customers")
+                        {
+                            @Html.ActionLink("Feedback", "Feedback", new { id = item.ID })
+                        }
+                    }
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

@@ -1,0 +1,94 @@
+﻿@model ITSolutionProviderSystem.Models.Login
+
+@{
+    ViewBag.Title = "Login";
+    Layout = null;/*= "~/Views/Shared/_Layout.cshtml";*/
+}
+
+<html>
+<head>
+    <title>Login Page</title>
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <style type="text/css">
+        .error {
+            color: red;
+        }
+
+        body {
+            background: url('../../Image/th (3).jpg') no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 offset-md-4 form login-form">
+
+                @using (Html.BeginForm())
+                {
+                <form>
+                    @Html.AntiForgeryToken()
+                    <h2 class="text-center">Login Here</h2>
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @*<div class="form-group">
+            @Html.LabelFor(model => model.userName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.userName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.userName, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+                    <div class="form-group">
+                        @*@Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>*@
+
+                        @Html.TextBoxFor(a => a.Email, new { @class = "form-control", @placeholder = "Email" })
+                        @Html.ValidationMessageFor(a => a.Email, "", new { @class = "error" })
+                    </div>
+
+                    <div class="form-group">
+                        @*@Html.LabelFor(model => model.password, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+            </div>*@
+
+                        @Html.TextBoxFor(a => a.password, new { @Type = "Password", @class = "form-control", @placeholder = "password" })
+                        @Html.ValidationMessageFor(a => a.password, "", new { @class = "error" })
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="Login" class="form-control button" />
+
+                        @*<div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Login" class="btn btn-default" />
+            </div>*@
+                    </div>
+
+
+                    <div class="link login-link text-center">
+                        @Html.ActionLink("Click Here To Signup", "CreateUser")
+                    </div>
+                </form>
+                }
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+@*<div>
+                        @Html.ActionLink("Go to User Registration", "CreateUser")
+                    </div>
+    </body>
+    </html>*@
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
